@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="61.25" y="0.0">Persona</node>
+    <node x="233.0" y="386.0">Platillo</node>
+    <node x="0.0" y="222.0">Adulto</node>
+    <node x="218.0" y="222.0">Nino</node>
+    <node x="0.0" y="386.0">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Nino" target="Persona">
+      <point x="0.0" y="-59.5" />
+      <point x="310.5" y="197.0" />
+      <point x="276.5" y="197.0" />
+      <point x="71.75" y="86.0" />
+    </edge>
+    <edge source="Adulto" target="Persona">
+      <point x="0.0" y="-59.5" />
+      <point x="99.0" y="197.0" />
+      <point x="133.0" y="197.0" />
+      <point x="-71.75" y="86.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1.0" y="161.0" />
+  <SelectedNodes>
+    <node>Platillo</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

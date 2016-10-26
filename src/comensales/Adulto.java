@@ -1,0 +1,25 @@
+package comensales;
+
+import java.util.Date;
+
+/**
+ * Created by Angelus on 19/10/2016.
+ */
+public class Adulto extends Persona {
+    public static int numAdulto=0;
+    public String profesion;
+
+    public Adulto(String nombre, Date fecha_nac, String profesion) {
+        super(nombre, fecha_nac);
+        this.profesion = profesion;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+}
