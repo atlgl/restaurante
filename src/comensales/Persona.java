@@ -53,5 +53,5 @@ public class Persona {
     public void setFecha_nac(Date fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
-    
+
 }
