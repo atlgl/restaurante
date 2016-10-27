@@ -9,8 +9,18 @@ public class Adulto extends Persona {
     public static int numAdulto=0;
     public String profesion;
 
+    public Adulto(){
+        numAdulto++;
+    }
+
+    public Adulto(String profesion) {
+        numAdulto++;
+        this.profesion = profesion;
+    }
+
     public Adulto(String nombre, Date fecha_nac, String profesion) {
         super(nombre, fecha_nac);
+        numAdulto++;
         this.profesion = profesion;
     }
 

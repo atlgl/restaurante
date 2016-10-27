@@ -12,6 +12,7 @@ public class Persona {
     private String nombre;
     private Date fecha_nac;
 
+
     public Persona(String nombre, Date fecha_nac) {
         this.nombre = nombre;
         this.fecha_nac = fecha_nac;
@@ -52,4 +53,5 @@ public class Persona {
     public void setFecha_nac(Date fecha_nac) {
         this.fecha_nac = fecha_nac;
     }
+    
 }

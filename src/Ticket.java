@@ -20,10 +20,10 @@ public class Ticket<T> {
     public  String toString(){
 
         String data="";
-        for (int i;i<=listaPlatillos.size();i++){
+        for (int i=0;i<=listaPlatillos.size();i++){
             data+=listaPlatillos.get(i).toString();
         }
-
+        return data;
     }
 
     public String imprimeTicket(String nombre,int numpersonas,String datos){
