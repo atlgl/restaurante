@@ -3,9 +3,7 @@ import comensales.Nino;
 import platillos.Platillo;
 
 import java.awt.*;
-import java.io.FileOutputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.rmi.server.ExportException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,21 +50,26 @@ public class Menu {
     }
 
     public void menuPrincipal(){
+        loadDatos();
         int opc = 0;
         do {
             System.out.println("--Fecha: "+fechaActual.toString()+"---\n");
+
             System.out.println("--Bienvenido Restaurante Papaloti---\n");
             System.out.println("--1.-Ingresar nueva cuenta---\n");
-            System.out.println("--2.-Mostrar Cuentas anteriores---\n");
+            System.out.println("--2.-M2ostrar Cuentas anteriores---\n");
             System.out.println("--3.-Mostrar Menu de Platillos---\n");
-            System.out.println("--4.-GuardarCambios---");
-            System.out.println("--5.-Salir\n");
+            System.out.println("--4.-GuardarCambios---\n");
+            System.out.println("--5.-Reiniciar datos");
+            System.out.println("--6.-Salir\n");
             System.out.println("--Selecciona una opcion\n");
             opc = scan.nextInt();
             switch (opc) {
                 case 1:
                     int opc2=0;
                     do {
+
+                        //
                         Cuenta c=new Cuenta();
                         cuentas.add(c);
                         System.out.println("--Cuenta creada: " + fechaActual.toString());
@@ -113,7 +116,7 @@ public class Menu {
                                 pn=Platillo.platillos.get(opcplatillo);
                                 c.addPlatillos(pn);
                                 System.out.println(pn.toString());
-                                System.out.print("Como desea el platillo "+pn.getLlave()+"?");
+                                System.out.print(" "+pn.getLlave()+" ?");
                                 pn.setValor(scan.next());
                                 System.out.println("Platillo agregado"+pn.toString());
                                 System.out.println("___________________________________________");
@@ -159,6 +162,12 @@ public class Menu {
                     }catch (Exception ex){
                         ex.printStackTrace();
                     }
+                    break;
+                case 5:
+                    File f=new File("data.res");
+                    f.delete();
+
+
                     break;
                 default:
                     System.out.println("introdusca otra opcion");
@@ -232,6 +241,24 @@ public class Menu {
             }
 
         }while(opc3!=5);
+    }
+
+
+    public void loadDatos(){
+        try {
+            FileInputStream fin = new FileInputStream("data.res");
+            ObjectInput ois = new ObjectInputStream(fin);
+            cuentas= (LinkedList<Cuenta>) ois.readObject();
+            Platillo.platillos= (LinkedList<Platillo>) ois.readObject();
+
+            ois.close();
+
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
     }
 
 

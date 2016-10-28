@@ -15,6 +15,7 @@ public class Platillo implements Serializable {
 
     public static int numPlatillosOrdenados=0;
     public static int numNumPlatillosMenu=0;
+
     public static LinkedList<Platillo> platillos=new LinkedList<>();
 
     public static String listarPlatillos(){
@@ -32,22 +33,20 @@ public class Platillo implements Serializable {
 
     }
 
-
-
     private String nombre;
     private float precio=0.0f;
     private String llave;
     private String valor;
-    private LinkedList<Caracteristica> caracteristicas;
 
     public Platillo() {
-        caracteristicas=new LinkedList<>();
+        numPlatillosOrdenados++;
     }
 
     public Platillo(String nombre, float precio) {
+        numPlatillosOrdenados++;
         this.nombre = nombre;
         this.precio = precio;
-        caracteristicas=new LinkedList<>();
+
     }
 
     public Platillo(String nombre) {
@@ -85,20 +84,6 @@ public class Platillo implements Serializable {
     public void setValor(String valor) {
         this.valor = valor;
     }
-
-    public void addCaracteristica(String caracteristica, Object valor){
-        caracteristicas.add(new Caracteristica(caracteristica,valor));
-    }
-
-    public String printCaracteristica(){
-        String info="";
-        for (int i=0;i<=caracteristicas.size();i++){
-            info+=caracteristicas.get(i).getPropiedad()+"-"+caracteristicas.get(i).getValor();
-        }
-        return  info;
-    }
-
-
 
     @Override
     public String toString() {
