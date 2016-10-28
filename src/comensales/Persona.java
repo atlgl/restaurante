@@ -1,11 +1,12 @@
 package comensales;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Angelus on 19/10/2016.
  */
-public class Persona {
+public class Persona implements Serializable {
 
 
     private int personaid;

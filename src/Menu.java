@@ -3,6 +3,10 @@ import comensales.Nino;
 import platillos.Platillo;
 
 import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.rmi.server.ExportException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
@@ -55,7 +59,8 @@ public class Menu {
             System.out.println("--1.-Ingresar nueva cuenta---\n");
             System.out.println("--2.-Mostrar Cuentas anteriores---\n");
             System.out.println("--3.-Mostrar Menu de Platillos---\n");
-            System.out.println("--4.-Salir\n");
+            System.out.println("--4.-GuardarCambios---");
+            System.out.println("--5.-Salir\n");
             System.out.println("--Selecciona una opcion\n");
             opc = scan.nextInt();
             switch (opc) {
@@ -144,12 +149,23 @@ public class Menu {
                 case 3:
                     menuPlatillos();
                     break;
+                case 4:
+                    try{
+                        FileOutputStream fout=new FileOutputStream("data.res");
+                        ObjectOutputStream oss=new ObjectOutputStream(fout);
+                        oss.writeObject((Object) cuentas);
+                        oss.writeObject((Object) Platillo.platillos);
+                        oss.close();
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                    break;
                 default:
                     System.out.println("introdusca otra opcion");
                     break;
 
             }
-        }while(opc!=4);
+        }while(opc!=5);
         System.out.println("Fin del programa");
 
     }

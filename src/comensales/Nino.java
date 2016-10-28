@@ -1,11 +1,12 @@
 package comensales;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Angelus on 19/10/2016.
  */
-public class Nino extends Persona {
+public class Nino extends Persona implements Serializable{
 
     public static int numNino=0;
 

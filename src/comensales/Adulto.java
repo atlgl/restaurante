@@ -1,12 +1,15 @@
 package comensales;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Angelus on 19/10/2016.
  */
-public class Adulto extends Persona {
+public class Adulto extends Persona implements Serializable {
+
     public static int numAdulto=0;
+
     public String profesion;
 
     public Adulto(){
@@ -31,5 +34,12 @@ public class Adulto extends Persona {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
+    }
+
+    @Override
+    public String toString() {
+        return "Adulto{" +
+                "profesion='" + profesion + '\'' +
+                '}';
     }
 }
