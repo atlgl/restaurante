@@ -1,5 +1,7 @@
 package platillos;
 
+import sun.rmi.transport.ObjectTable;
+
 import java.awt.font.TextLayout;
 import java.io.Serializable;
 import java.util.Enumeration;
@@ -13,10 +15,29 @@ public class Platillo implements Serializable {
 
     public static int numPlatillosOrdenados=0;
     public static int numNumPlatillosMenu=0;
+    public static LinkedList<Platillo> platillos=new LinkedList<>();
+
+    public static String listarPlatillos(){
+        String info="";
+        if(platillos.size()>0){
+
+            for (int i=0;i<platillos.size();i++){
+                info+=i+"-"+platillos.get(i).toString()+"\n";
+            }
+        }
+        else
+            info="No hay platillos";
+
+        return info;
+
+    }
+
 
 
     private String nombre;
     private float precio=0.0f;
+    private String llave;
+    private String valor;
     private LinkedList<Caracteristica> caracteristicas;
 
     public Platillo() {
@@ -49,7 +70,23 @@ public class Platillo implements Serializable {
         this.precio = precio;
     }
 
-    public void addCaracteristica(String caracteristica,Object valor){
+    public String getLlave() {
+        return llave;
+    }
+
+    public void setLlave(String llave) {
+        this.llave = llave;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public void addCaracteristica(String caracteristica, Object valor){
         caracteristicas.add(new Caracteristica(caracteristica,valor));
     }
 

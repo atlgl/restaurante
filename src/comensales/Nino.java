@@ -6,11 +6,19 @@ import java.util.Date;
  * Created by Angelus on 19/10/2016.
  */
 public class Nino extends Persona {
-    private static int numNino=0;
-     private String colegio;
+
+    public static int numNino=0;
+
+    private String colegio;
+
+    public Nino(){
+        numNino++;
+
+    }
 
     public Nino(String nombre, Date fecha_nac, String colegio) {
         super(nombre, fecha_nac);
+        numNino++;
         this.colegio = colegio;
     }
 
